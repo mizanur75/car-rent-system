@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\VerifyUser;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -26,4 +27,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function verifyUser(){
+        return $this->hasOne('App\VerifyUser');
+    }
 }
